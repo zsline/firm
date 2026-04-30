@@ -1,0 +1,222 @@
+:root{
+    --bg-color: #fff;
+    --text-color: #000;
+    --grey-color: #F8F8F8;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-VariableFont_wdth\,wght.woff2") format("woff2"),
+       url("../fonts/Roboto-VariableFont_wdth\,wght.woff") format("woff"),
+       url("../fonts/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+/* Reset ================= */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+a, a:focus, a:active{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ======================= */
+
+
+
+
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: clamp(1rem, calc(0.95rem + 0.23vw), 1.13rem);
+}
+
+.wrapper{
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+.container{
+    max-width: 1228px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+.container-fluid{
+    max-width: 1865px;
+    padding: 0 clamp(0.63rem, calc(0.22rem + 2vw), 2.63rem);
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px){
+    .wrapper{
+    height: auto;
+    overflow-y: auto;
+}
+}
+/* ========== */
+.box-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 0;
+    margin-top: 35px;
+}
+
+.box-item{
+    display: inline-block;
+    padding: 13px;
+    background-color: var(--grey-color);
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    width: calc(100% / 3 - 20px);
+    margin-bottom: clamp(1rem, calc(0.46rem + 2.7vw), 2.5rem);
+}
+.box-item__tabs{
+    padding-top: 11px;
+    border-top: 1px solid #E2E2E2;
+    margin-top: 10px;
+    ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            position: relative;
+            margin-left: 16px;
+            padding: 4px 8px;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: all 0.3s;
+        }
+        li:hover{
+            background-color: #E2E2E2;
+        }
+        li::after{
+            position: absolute;
+            content: "|";
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+        }
+        li:last-child::after{
+            content: "";
+        }
+        li:first-child{
+            margin-left: 0;
+        }
+    }
+}
+.box-item__title{
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, calc(1.41rem + 0.45vw), 1.75rem);
+    font-weight: 600;
+}
+.box-item__tabs ul li {
+    font-size: clamp(0.88rem, calc(0.78rem + 0.45vw), 1.12rem);
+}
+@media (max-width: 1200px){
+    .box-item {
+        width: calc(100% / 2 - 20px);
+    }
+}
+@media (max-width: 746px){
+    .box-item {
+        width: 100%;
+    }
+}
+/* ==================== */
+/*  ========= HEADER ========= */
+.header{
+    padding: 28px 0;
+}
+.header__wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-transform: uppercase;
+    nav{
+        text-align: center;
+    }
+    .header__links{
+        text-align: right;
+    }
+}
+.header__mobile-menu{
+    display: none;
+    cursor: pointer;
+}
+@media (max-width: 976px) {
+    .header__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header__nav, .header__links{
+        display: none;
+    }
+    .header__mobile-menu{
+        display: block;
+    }
+}
+/* =======END HEADER ============ */
+
+/* ============ HOME =============== */
+.hero{
+    margin-top: 0;
+    margin-bottom: auto;
+}
+.hero-home {
+    text-align: center;
+}
+.hero-home__img{
+    margin-top: clamp(5.13rem, calc(4.36rem + 3.83vw), 7.25rem);
+    margin-bottom: clamp(6rem, calc(5.46rem + 2.7vw), 7.5rem);
+    margin-left: auto;
+    margin-right: auto;
+    width: clamp(16.88rem, calc(12.06rem + 24.1vw), 30.25rem);
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+
+/* ========= END HOME =========== */
+
+.footer{
+    margin-top: auto;
+    padding: 28px 0;
+}
+.footer__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 1200px){
+.footer__wrapper{
+    flex-direction: column;
+    gap: 24px;
+}
+}
+@media (max-width: 746px){
+    .footer__wrapper {
+        display: none;
+    }
+}
