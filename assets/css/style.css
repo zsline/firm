@@ -1,6 +1,7 @@
 :root{
     --bg-color: #fff;
     --text-color: #000;
+    --light-text-color: #5F5F5F;
     --grey-color: #F8F8F8;
     --dark-grey-color: #A4A4A4;
     --light-text: #7D7D7D;
@@ -22,8 +23,15 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
-
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
 a, a:focus, a:active{
     text-decoration: none;
     color: inherit;
@@ -48,7 +56,9 @@ body{
     color: var(--text-color);
     font-size: clamp(1rem, calc(0.95rem + 0.23vw), 1.13rem);
 }
+h1{
 
+}
 .wrapper{
     height: 100vh;
     overflow: hidden;
@@ -275,26 +285,60 @@ body{
 @media (max-width:867px) {
      .home-modal {
         .home-modal__content {
-        .home-modal__inner {
-            display: block;
-            .home-modal__inner--item{
-                width: 100%;
-                padding-left: 0;
-                margin-right: 0;
-                border-left: none;
-                text-align: left;
-                margin-top: 14px;
-                padding-bottom: 14px;
-                border-bottom: 1px solid #E2E2E2;
-                margin-bottom: 24px;
+            .home-modal__inner {
+                display: block;
+                .home-modal__inner--item{
+                    width: 100%;
+                    padding-left: 0;
+                    margin-right: 0;
+                    border-left: none;
+                    text-align: left;
+                    margin-top: 14px;
+                    padding-bottom: 14px;
+                    border-bottom: 1px solid #E2E2E2;
+                    margin-bottom: 24px;
+                }
             }
         }
     }
 }
-
-*
-}
 /* ===== END MODALS ======= */
+/* ==== SIDEBAR ============ */
+.sidebar{
+    width: 218px;
+    .sidebar__tabs{
+        display: flex;
+        flex-direction: column;
+        .sidebar__tabs--item{
+            font-size: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 1.5;
+            color: var(--light-text-color);
+            text-align: right;
+            padding: 5px 29px 5px 5px;
+            overflow: hidden;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+        .sidebar__tabs--item:first-child{
+            border-top-left-radius: 20px;
+        }
+        .sidebar__tabs--item:last-child{
+            border-bottom-left-radius: 20px;
+            
+        }
+        .sidebar__tabs--item:hover{
+            background-color: var(--grey-color);
+        }
+        .sidebar__tabs--item.active{
+            background-color: var(--grey-color);
+        }
+    }
+}
+/* ==== END SIDEBAR ============ */
 /*  ========= HEADER ========= */
 .header{
     padding: 28px 0;
@@ -317,6 +361,9 @@ body{
     cursor: pointer;
 }
 .header__lang{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     ul{
         li{
             margin-left: 5px;
@@ -332,6 +379,9 @@ body{
         }
     }
 }
+.header__logo{
+    margin-right: 48px;
+}
 @media (max-width: 976px) {
     .header__wrapper{
         display: flex;
@@ -346,7 +396,45 @@ body{
     }
 }
 /* =======END HEADER ============ */
+/* ========== PAGES =========== */
+.wrapper:has(.page) .header{
+    padding-bottom: 20px;
+}
+.page{
+    h1{
+        text-align: center;
+        margin-top: 57px;
+        margin-bottom: 26px;
+    }
+    .home-link{
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .page__wrapper{
+        width: 100%;
+        display: flex;
+        align-items: start;
+    }
+    .page-tab__content{
+        width: calc(100% - 218px);
+        height: 100%;
+        min-height: 50vh;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+        background-color: var(--grey-color);
+        box-shadow: 3px 0px 4px rgba(0, 0, 0, 0.25);
+        color: var(--light-text-color);
+        padding: 26px 30px;
 
+        display: none;
+    }
+    .page-tab__content.active{
+        display: block;
+    }
+}
+/* ========== END PAGES =========== */
 /* ============ HOME =============== */
 .hero{
     margin-top: 0;

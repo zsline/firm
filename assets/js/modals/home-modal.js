@@ -2,21 +2,25 @@ import * as aux from "../inc/auxiliary.js"
 
 
 
-const modalBoxes = document.querySelectorAll('.box-item');
 const modal = document.querySelector('.home-modal');
-const modalInner = modal.querySelector('.home-modal__inner');
-const modalClose = modal.querySelector('.home-modal__close');
+    const modalBoxes = document.querySelectorAll('.box-item');
+    const modalInner = document.querySelector('.home-modal__inner');
+    const modalClose = document.querySelector('.home-modal__close');
+
+
 
 export function homeModal(){
-    modalBoxes.forEach(el => {
-        el.addEventListener('click', (e) => {
-            modal.classList.add('open');
-                createInner(el, e);
+    if(modal){
+        modalBoxes.forEach(el => {
+            el.addEventListener('click', (e) => {
+                modal.classList.add('open');
+                    createInner(el, e);
+            });
+            modalClose.addEventListener('click', ()=>{
+                modal.classList.remove('open');
+            })
         });
-        modalClose.addEventListener('click', ()=>{
-            modal.classList.remove('open');
-        })
-    });
+    }
 }
 
 function createInner(el, e) {
