@@ -216,7 +216,8 @@ body{
     top: 0;
     left: 0;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
+    padding: 10px;
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
@@ -236,13 +237,12 @@ body{
             margin-top: 15px;
             border-top: 1px solid #E2E2E2;
             display: flex;
+            justify-content: space-between;
             .home-modal__inner--item{
                 margin-right: 64px;
                 padding-left: 24px;
                 border-left: 1px solid #E2E2E2;
-            }
-            .home-modal__inner--item:last-child{
-                margin-right: 0;
+                width: 30%;
             }
             .home-modal__inner--item:first-child{
                 padding-left: 0;
@@ -268,8 +268,31 @@ body{
         cursor: pointer;
     }
 }
+
 .home-modal.open{
     display: flex;
+}
+@media (max-width:867px) {
+     .home-modal {
+        .home-modal__content {
+        .home-modal__inner {
+            display: block;
+            .home-modal__inner--item{
+                width: 100%;
+                padding-left: 0;
+                margin-right: 0;
+                border-left: none;
+                text-align: left;
+                margin-top: 14px;
+                padding-bottom: 14px;
+                border-bottom: 1px solid #E2E2E2;
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+*
 }
 /* ===== END MODALS ======= */
 /*  ========= HEADER ========= */
