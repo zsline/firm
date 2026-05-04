@@ -603,7 +603,7 @@ h3{
     border-radius: 20px;
     overflow: hidden;
     iframe, iframe > *{
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 12;
         width: 100%;
         height: 100%;
     }
@@ -619,6 +619,7 @@ h3{
 .item-content__video--content > div:not(:last-child){
     margin-bottom: 14px;
 }
+
 /* end block video */
 /* ============ HOME =============== */
 .hero{
@@ -648,6 +649,13 @@ h3{
 }
 @media (max-width: 746px){
     .hero-home__search form {
+        width: 100%;
+    }
+    .item-content__video{
+        flex-direction: column;
+    }
+    .item-content__video--iframe {
+        max-width: 100%;
         width: 100%;
     }
 }
