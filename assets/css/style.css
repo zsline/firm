@@ -379,7 +379,7 @@ h3{
 .page{
     h1{
         text-align: center;
-        margin-top: 57px;
+        margin-top: 32px;
         margin-bottom: 26px;
     }
     .home-link{
@@ -590,7 +590,36 @@ h3{
     display: none;
 }
 /* end slider */
-
+/* block video */
+.item-content__video {
+    display: flex;
+    gap: clamp(1.75rem, calc(1.16rem + 2.93vw), 3.25rem);
+    align-items: center;
+    margin-bottom: 32px;
+}
+.item-content__video--iframe{
+    max-width: 348px;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    iframe, iframe > *{
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: 100%;
+    }
+}
+.item-content__video--iframe iframe{
+    display: block;
+}
+.item-content__video--iframe iframe, .item-content__video--iframe iframe > *{
+        aspect-ratio: 16 / 12;
+        width: 100%;
+        height: 100%;
+    }
+.item-content__video--content > div:not(:last-child){
+    margin-bottom: 14px;
+}
+/* end block video */
 /* ============ HOME =============== */
 .hero{
     margin-top: 0;
