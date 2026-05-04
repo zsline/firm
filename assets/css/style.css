@@ -447,6 +447,51 @@ h1{
         display: block;
     }
 }
+@media (max-width:746px) {
+    .page__item {
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+    .page__item .page__item--tab {
+        width: 100%;
+        text-align: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        transition: all 0s;
+    }
+    .page__item .page__item--tab:hover{
+        background-color: #EBEBEB;
+    }
+    .page__item .page__item--tab::after{
+        right: 10px;
+    }
+    .page__item.active .page__item--tab{
+        background-color: #EBEBEB !important;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    }
+    .page__item .page__item--tab::after{
+        transform: rotate(90deg) translateX(-50%);
+
+    }
+    .page__item.active .page__item--tab::after{
+        transform: rotate(270deg) translateX(50%);
+    }
+    .page__item .page__item--content{
+        position: relative;
+        width: 100%;
+        left: 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius:12px;
+        border-bottom-left-radius: 12px;
+    }
+}
 /* ========== END PAGES =========== */
 /* ============ HOME =============== */
 .hero{
