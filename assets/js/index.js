@@ -1,5 +1,6 @@
 import { homeModal } from "./modals/home-modal.js";
 import { tabs } from "./particals/tabs.js";
+import { sliders } from "./particals/sliders.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.hero-home')){
@@ -10,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 });
+if(document.querySelector('.swiper-wrapper')){
+    sliders();
+}
 
 
 

@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Про нас</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -66,7 +70,56 @@
             <div class="page__wrapper">
               <div class="page__item active">
                 <div class="page__item--tab">Хто ми?</div>
-                <div class="page__item--content">Хто ми?</div>
+                <div class="page__item--content item-content">
+                  <h2 class="item-content__title">Ми бізнес-хаб</h2>
+                  <div class="item-content__slider swiper">
+                    <div class="swiper-wrapper">
+                      <div class="item-content__slide swiper-slide">
+                        <div class="item-content__slide--img">
+                          <img src="./assets/img/img-atmosphere.jpg" alt="" />
+                        </div>
+                        <h3 class="item-content__slide--title center">
+                          АТМОСФЕРА
+                        </h3>
+                        <p class="item-content__slide--text">
+                          Умови, які сприяють формуванню та реалізації Вашої
+                          бізнес-ідеї
+                        </p>
+                      </div>
+                      <div class="item-content__slide swiper-slide">
+                        <div class="item-content__slide--img">
+                          <img src="./assets/img/img-workplace.jpg" alt="" />
+                        </div>
+                        <h3 class="item-content__slide--title center">
+                          Простір
+                        </h3>
+                        <p class="item-content__slide--text">
+                          Місце, де є все необхідне для реалізації Вашої
+                          бізнес-мрії в успішний бізнес
+                        </p>
+                      </div>
+                      <div class="item-content__slide swiper-slide">
+                        <div class="item-content__slide--img">
+                          <img src="./assets/img/img-socium.jpg" alt="" />
+                        </div>
+                        <h3 class="item-content__slide--title center">
+                          СОЦІУМ
+                        </h3>
+                        <p class="item-content__slide--text">
+                          Спільнота людей з ідеями, знаннями, можливостями та
+                          ресурсами для розвитку Вашого проекту
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-content__navigation">
+                    <div class="item-content__arrows">
+                      <div class="item-content__prev item-content__btn"></div>
+                      <div class="item-content__next item-content__btn"></div>
+                    </div>
+                    <div class="item-content__pagination"></div>
+                  </div>
+                </div>
               </div>
               <div class="page__item">
                 <div class="page__item--tab">Призначення</div>
@@ -114,6 +167,7 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="./assets/js/index.js" type="module"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@
     --grey-color: #F8F8F8;
     --dark-grey-color: #A4A4A4;
     --light-text: #7D7D7D;
+    --accent-color: #FFD764;
 }
 @font-face {
   font-family: "Roboto";
@@ -23,14 +24,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, p{
     margin: 0;
     padding: 0;
-}
-h1{
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0.1rem;
 }
 a, a:focus, a:active{
     text-decoration: none;
@@ -57,7 +53,20 @@ body{
     font-size: clamp(1rem, calc(0.95rem + 0.23vw), 1.13rem);
 }
 h1{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
 
+h2{
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+h3{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 .wrapper{
     height: 100vh;
@@ -76,7 +85,9 @@ h1{
     padding: 0 clamp(0.63rem, calc(0.22rem + 2vw), 2.63rem);
     margin: 0 auto;
 }
-
+.center{
+    text-align: center;
+}
 @media (max-width: 1200px){
     .wrapper{
     height: auto;
@@ -434,7 +445,7 @@ h1{
         width: calc(100% - 218px);
         top: 0;
         left: 218px;
-        min-height: 50vh;
+        min-height: 420px;
         border-radius: 20px;
         border-top-left-radius: 0;
         background-color: var(--grey-color);
@@ -442,10 +453,15 @@ h1{
         color: var(--light-text-color);
         padding: 24px clamp(1rem, calc(0.66rem + 1.71vw), 1.88rem);
         display: none;
+        color: #424242;
+        
     }
     .page__item.active .page__item--content{
         display: block;
     }
+}
+.item-content__title{
+    text-align: center;
 }
 @media (max-width:746px) {
     .page__item {
@@ -493,6 +509,88 @@ h1{
     }
 }
 /* ========== END PAGES =========== */
+/* slider */
+.item-content__slider{
+    overflow: hidden;
+    margin-top: 20px;
+    
+}
+.item-content__slide--img{
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.item-content__slide--img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item-content__slide p{
+    font-size: 18px;
+    padding: 4px 12px;
+}
+.item-content__navigation{
+    position: relative;
+    width: 100%;
+}
+.item-content__pagination{
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: fit-content !important;
+    margin: auto;
+    span {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px !important;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: var(--accent-color);
+        cursor: default;
+    }
+
+}
+.item-content__arrows{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-content__btn{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D1D1D1;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+}
+.item-content__btn.item-content__prev::after{
+    content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="white"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+    height: 24px;
+    width: 22px;
+    transform: translateX(-1px) rotate(180deg);
+}
+.item-content__btn.item-content__next::after{
+    content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="white"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+    height: 24px;
+    width: 22px;
+    transform: translateX(1px);
+}
+.item-content__btn.swiper-button-disabled::after{
+    content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="%23B5B5B5"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+    cursor: default;
+}
+.item-content__btn.swiper-button-lock{
+    display: none;
+}
+/* end slider */
+
 /* ============ HOME =============== */
 .hero{
     margin-top: 0;
