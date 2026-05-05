@@ -1,6 +1,10 @@
 export function sliders() {
     const contentSliders = document.querySelectorAll('.item-content__slider');
     contentSliders.forEach(slider => {
+        const container = slider.closest('.item-content');
+        const nextBtn = container.querySelector('.item-content__next');
+        const prevBtn = container.querySelector('.item-content__prev');
+        const pagination = container.querySelector('.item-content__pagination');
         new Swiper(slider, {
             slidesPerView: 1,
             spaceBetween: 52,
@@ -14,12 +18,12 @@ export function sliders() {
                     },
                     },
               pagination: {
-                el: '.item-content__pagination',
+                el: pagination,
                 clickable: true
             },
               navigation: {
-                nextEl: '.item-content__next',
-                prevEl: '.item-content__prev',
+                nextEl: nextBtn,
+                prevEl: prevBtn,
             },
         }
 
