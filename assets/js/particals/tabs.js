@@ -7,6 +7,11 @@ export function tabs(){
                     el.classList.remove('active');
                 });
                 e.target.parentElement.classList.add('active');
+                const parent = e.target.parentElement;
+                parent.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+                });
             }
         })
     })
