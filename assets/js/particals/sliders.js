@@ -1,13 +1,21 @@
 export function sliders() {
     const contentSliders = document.querySelectorAll('.item-content__slider');
+    
+
     contentSliders.forEach(slider => {
         const container = slider.closest('.item-content');
         const nextBtn = container.querySelector('.item-content__next');
         const prevBtn = container.querySelector('.item-content__prev');
         const pagination = container.querySelector('.item-content__pagination');
+            let spaceBetween = null;
+            if(container.classList.contains('social-content')){
+                spaceBetween = 30;
+            } else{
+                spaceBetween = 52;
+            }
         new Swiper(slider, {
             slidesPerView: 1,
-            spaceBetween: 52,
+            spaceBetween: spaceBetween,
             watchOverflow: true,
                 breakpoints: {
                     640: {
