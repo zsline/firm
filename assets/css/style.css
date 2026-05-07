@@ -154,6 +154,9 @@ ul{
         li:hover{
             background-color: var(--grey-color);
         }
+        li.current-menu-item{
+            background-color: var(--grey-color);
+        }
         li:has(a:focus){
             background-color: var(--grey-color) !important;
         }
@@ -219,6 +222,7 @@ ul{
     text-transform: uppercase;
     font-size: clamp(1.5rem, calc(1.41rem + 0.45vw), 1.75rem);
     font-weight: 600;
+    text-align: center;
 }
 .box-item__tabs ul li {
     font-size: clamp(0.88rem, calc(0.78rem + 0.45vw), 1.12rem);
@@ -563,8 +567,21 @@ ul{
 }
 /* =======END HEADER ============ */
 /* ========== PAGES =========== */
+
 .wrapper:has(.page) .header{
     padding-bottom: 20px;
+}
+.page:not(.tabs-page) h1{
+    margin-bottom: 10vh;
+}
+.page .container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page.tabs-page .container{
+    display: block;
 }
 .page{
     h1{

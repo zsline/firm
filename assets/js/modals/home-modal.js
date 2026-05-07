@@ -3,9 +3,9 @@ import * as aux from "../inc/auxiliary.js"
 
 
 const modal = document.querySelector('.home-modal');
-    const modalBoxes = document.querySelectorAll('.box-item');
-    const modalInner = document.querySelector('.home-modal__inner');
-    const modalClose = document.querySelector('.home-modal__close');
+const modalBoxes = document.querySelectorAll('.box-item');
+const modalInner = document.querySelector('.home-modal__inner');
+const modalClose = document.querySelector('.home-modal__close');
 
 
 
