@@ -254,6 +254,28 @@ ul{
         color: var(--light-text);
     }
 }
+.col-2{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, calc(-1.19rem + 5.78vw), 3.5rem);
+}
+
+.page .box-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 448px;
+}
+.page .box-item p{
+    padding: 0 12px;
+    text-align: center; 
+}
+.col-2 > .box-item {
+    width: calc(100% / 2 - 10px) !important;
+    min-width: 320px;
+    margin: 0;
+}
 @media (max-width: 1200px){
     .box-item {
         width: calc(100% / 2 - 20px);
