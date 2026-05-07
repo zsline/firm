@@ -5,7 +5,7 @@
     --grey-color: #F8F8F8;
     --dark-grey-color: #A4A4A4;
     --light-text: #7D7D7D;
-    --accent-color: #FFD764;
+    --accent-color: #E1AE0C;
 }
 @font-face {
   font-family: "Roboto";
@@ -182,10 +182,14 @@ ul{
     padding-top: 11px;
     border-top: 1px solid #E2E2E2;
     margin-top: 10px;
-    ul{
+    
+}
+.box-item__tabs ul{
         display: flex;
         justify-content: center;
         align-items: center;
+        list-style: none;
+        padding: 0;
         li{
             position: relative;
             margin-left: 16px;
@@ -211,7 +215,6 @@ ul{
             margin-left: 0;
         }
     }
-}
 .box-item__title{
     text-transform: uppercase;
     font-size: clamp(1.5rem, calc(1.41rem + 0.45vw), 1.75rem);
@@ -271,6 +274,7 @@ ul{
     display: none;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(4px);
 
     .home-modal__content{
         padding: 18px;
@@ -358,7 +362,7 @@ ul{
         justify-content: end;
     }
 }
-.header__mobile-menu{
+.header__mobile-btn{
     display: none;
     cursor: pointer;
 }
@@ -384,6 +388,165 @@ ul{
 .header__logo{
     margin-right: 48px;
 }
+.header-mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    backdrop-filter: blur(4px);
+    display: none;
+}
+.header-mobile.open{
+    display: block;
+}
+.header-mobile__wrapper{
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+    background-color: var(--bg-color);
+    padding-top: 54px;
+    padding-bottom: 8px;
+    width: fit-content;
+    height: 100%;
+}
+.header-mobile__inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.header-mobile__wrapper .menu-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.header-mobile__wrapper nav{
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin: 0 12px;
+}
+.header-mobile__wrapper nav::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--dark-grey-color);
+    bottom: 0;
+    left: 0;
+    opacity: 0.2;
+}
+.header-mobile__wrapper nav:first-child{
+    padding-top: 0;
+}
+.header-mobile__wrapper nav:last-child{
+    padding-bottom: 0;
+}
+.header-mobile__wrapper nav:last-child::after{
+    display: none;
+}
+.header-mobile__wrapper ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+.header-mobile__wrapper ul li{
+    position: relative;
+    padding-left: 32px;
+    position: relative;
+    margin-bottom: 16px;
+}
+.header-mobile__wrapper ul li::before{
+    position: absolute;
+    top: calc(50% + 1px);
+    left: 0;
+    transform: translateY(-50%);
+    content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="white"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+    
+    opacity: 0;
+    transition: all 0.3s;
+}
+.header-mobile__wrapper ul li:hover::before{
+    opacity: 1;
+    
+}
+.header-mobile__wrapper ul li:focus::before{
+    opacity: 1;
+}
+.header-mobile__wrapper ul li.current-menu-item::before{
+    opacity: 1;
+    content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="%23B5B5B5"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+
+}
+.header-mobile__wrapper ul li.current-menu-item{
+    font-weight: 700;
+}
+.header-mobile__wrapper ul li:last-child{
+    margin-bottom: 0;
+}
+.header-mobile__copy{
+    text-align: center;
+    margin:auto;
+}
+.header-mobile__app{
+    margin-top: 48px;
+    margin-bottom: auto;
+}
+.header-mobile__app--title{
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--light-text);
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+.header-mobile__app--wrapper{
+    background-color: var(--grey-color);
+    padding: 8px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+.header-mobile__app--offer{
+    font-size: 20px;
+    font-weight: 700;
+}
+.header-mobile__app--offer strong{
+    font-style: italic;
+    display: block;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+.header-mobile__app--btns{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+.header-mobile__app--btns img{
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+.header-mobile__app--links p{
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--light-text-color);
+    text-align: center;
+}
 @media (max-width: 976px) {
     .header__wrapper{
         display: flex;
@@ -393,9 +556,10 @@ ul{
     .header__nav, .header__links{
         display: none;
     }
-    .header__mobile-menu{
+    .header__mobile-btn{
         display: block;
     }
+
 }
 /* =======END HEADER ============ */
 /* ========== PAGES =========== */
@@ -471,15 +635,12 @@ ul{
         width: calc(100% - 218px);
         top: 0;
         left: 218px;
-        /* min-height: 420px; */
         border-radius: 20px;
         border-top-left-radius: 0;
         background-color: var(--grey-color);
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
         color: var(--light-text-color);
         padding: 0;
-        /* display: none; */
-        height: 0px;
         opacity: 0;
         color: #424242;
         transition: all 0.2s;
@@ -488,8 +649,10 @@ ul{
     }
     .page__item.active .page__item--content{
         /* display: block; */
-        padding: 24px clamp(1rem, calc(0.66rem + 1.71vw), 1.88rem);
-        height: auto;
+        padding: 24px clamp(1rem, calc(0.66rem + 1.71vw), 1.88rem) 12px;
+        max-height: calc(100vh - 240px);
+        min-height: 110%;
+        overflow-y: auto;
         opacity: 1;
         pointer-events: visible;
     }
@@ -631,7 +794,7 @@ ul{
     display: flex;
     gap: clamp(1.75rem, calc(1.16rem + 2.93vw), 3.25rem);
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 .item-content__video--iframe{
     max-width: 348px;
@@ -1029,9 +1192,6 @@ ul{
 
 /* content app block */
 
-.item-content__app--wrapper{
-    /* flex-wrap: wrap; */
-}
 .item-content__app--wrapper img{
     max-width: 325px;
     width: 100%;

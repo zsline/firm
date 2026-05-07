@@ -15,5 +15,19 @@ if(document.querySelector('.swiper-wrapper')){
     sliders();
 }
 
+// ==== menu mobile =======
+const menuMobile = document.querySelector('.header-mobile');
+const openMenu = document.querySelector('.header__mobile-btn');
+const closeMenu = document.querySelector('.menu-close');
+
+if(openMenu && menuMobile && closeMenu){
+    openMenu.addEventListener('click', (e) => {
+        menuMobile.classList.add('open');
+    });
+    closeMenu.addEventListener('click', (e) => {
+        menuMobile.classList.remove('open');
+    });
+}
+
 
 
